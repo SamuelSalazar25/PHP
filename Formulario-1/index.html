@@ -8,12 +8,24 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
+            max-width: 1000px;
             font-family: Arial, sans-serif;
             background-color: #ed8989;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 50vh;
+        }
+
+        .fields {
+            display: grid;
+            /* @media (min-width: 375px) {
+                grid-template-columns: 6em 1fr;
+            }*/
+        }
+
+        .main-title {
+            margin-top: 0;
         }
 
         form {
@@ -37,6 +49,8 @@
             box-sizing: border-box;
             border: 1px solid #ccc;
             border-radius: 4px;
+
+
         }
 
         input[type="radio"] {
@@ -67,17 +81,17 @@
 
             <ul class="fields">
                 <li class="field required">
-                    <label for="first-name">
+                    <label for="firstName">
                         Nombre: </label>
 
 
-                    <input class="form-control" placeholder="Experimento" id="first-name" name="firstName" type="text">
+                    <input class="form-control" placeholder="Experimento" id="firstName" name="firstName" type="text">
 
                 </li>
 
                 <li class="field required">
-                    <label for="last-name">Apellidos: </label>
-                    <input class="form-control" placeholder="Experimento2" id="last-name" name=" lastName" type="text">
+                    <label for="lastName">Apellidos: </label>
+                    <input class="form-control" placeholder="Experimento2" id="lastName" name=" lastName" type="text">
                 </li>
 
                 <li class="field">
