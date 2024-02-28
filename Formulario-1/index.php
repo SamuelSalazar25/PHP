@@ -1,3 +1,9 @@
+<?php 
+
+require('./includes/gestion-envio-formulario.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,7 +14,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            max-width: 1000px;
+            max-width: 1750px;
             font-family: Arial, sans-serif;
             background-color: #ed8989;
             display: flex;
@@ -30,10 +36,10 @@
 
         form {
             background-color: #fff;
-            padding: 15px;
+            padding: 12px;
             border-radius: 6px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 260px;
+            width: 290px;
         }
 
         label {
@@ -85,13 +91,17 @@
                         Nombre: </label>
 
 
-                    <input class="form-control" placeholder="Experimento" id="firstName" name="firstName" type="text">
+                    <input class="form-control" placeholder="Experimento" id="firstName" name="firstName" type="text" value="<?php 
+                    if(isset($_POST['nombre'])) {
+                        echo $_POST['nombre'];
+                    }
+                ?>">
 
                 </li>
 
                 <li class="field required">
                     <label for="lastName">Apellidos: </label>
-                    <input class="form-control" placeholder="Experimento2" id="lastName" name=" lastName" type="text">
+                    <input class="form-control" placeholder="Experimento2" id="lastName" name=" lastName" type="text" value="<?=$_REQUEST['apellidos']??"";?>" >
                 </li>
 
                 <li class="field">
@@ -107,9 +117,25 @@
                     <fieldset>
                         <h2>Correo electrónico</h2>
                         <label>Email: <input type="email" name="email"
-                                placeholder="ssalcam.appventures@gmail.com"></label>
+                                placeholder="ssalcam.appventures@gmail.com" value="<?=$_REQUEST['email']??"";?>"></label>
                     </fieldset>
                 </li>
+
+                <?php
+        if ($formularioEnviado):
+            if(isset($errorNombre)):
+        ?>
+
+<strong>Rellena el campo nombre</strong>   
+          
+          
+          <?php
+              endif;
+              if (isset($errorCorreo)) {
+                  echo "<strong>Rellena el campo Correo</strong>";
+              }
+          endif;
+          ?>
 
                 <li>
                     <h3>Número de teléfono</h3>

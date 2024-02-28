@@ -1,13 +1,4 @@
 <?php
-//$_SERVER
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    extract($_POST); // Extraer índices de un array asociativo y los convierte en variables
-    // Validar campos obligatorios. SIEMPRE LIMPIAR CAMPOS --> trim()
-    if (empty(trim($firstName)) || empty(trim($email))) {
-        echo "Hay campos vacíos";
-    }
-}
-
 
 extract($_POST); // convertir los índices en variables de un array asociativo
 
