@@ -17,8 +17,6 @@ require('./data.php');
 <h1>Cuestionario sobre PHP</h1>
 <?php echo $_SERVER['PHP_SELF']; ?>
 
-La etiqueta de apertura &lt;h1gt; es un encabezado.
-
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <p>1. ¿Qué significa PHP?</p>
     <input type="text" name="pregunta1" value="<?php
@@ -34,11 +32,17 @@ La etiqueta de apertura &lt;h1gt; es un encabezado.
     <input type="text" name="pregunta4" value="<?=$_REQUEST['pregunta4']??''; ?>"><br><br>
 
     <p>6. ¿Para qué se utiliza PHP principalmente?</p>
+    <select name="" id="">
+        <option value="ES">España</option>
+        <option value="FR">Francia</option>
+    </select>
     <select name="pregunta6">
         <?php
-        foreach(OPCIONES_6 as $valor => $texto) {
-            $selected = (isset($_REQUEST['pregunta6']) && $_REQUEST['pregunta6'] === $valor) ? 'selected' : '';
-            echo "<option $selected value=\"$valor\">$texto</option>";
+
+        foreach(OPCIONES_6 as $indice => $texto) {
+            $selected = (isset($_REQUEST['pregunta6']) && $_REQUEST['pregunta6'] === $indice) ? 'selected' : '';
+            echo "<option $selected value=\"$indice\">$texto</option>";
+
         }
     ?>
         <option value="">Selecciona una opción</option>
